@@ -6,9 +6,9 @@ spring:
   application:
     name: USER-SERVICE
   datasource:
-    url: jdbc:sqlserver://185.56.139.237;databaseName=capacityV2;encrypt=true;trustServerCertificate=true;
-    username: sa
-    password: Test-SA@1!
+    url: jdbc:sqlserver://localhost:3306;databaseName=capacityV2;encrypt=true;trustServerCertificate=true;
+    username: root
+    password: 123456
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     #    show-sql: true
