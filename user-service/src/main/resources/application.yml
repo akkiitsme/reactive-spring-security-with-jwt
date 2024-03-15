@@ -1,0 +1,64 @@
+server:
+  port: 8081
+
+# Database Configuration
+spring:
+  application:
+    name: USER-SERVICE
+  datasource:
+    url: jdbc:sqlserver://185.56.139.237;databaseName=capacityV2;encrypt=true;trustServerCertificate=true;
+    username: sa
+    password: Test-SA@1!
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    #    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+# Logs config
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+
+#Spring-Actuator configuration
+management:
+  endpoints:
+    web:
+      base-path: /user-service-actuator
+      exposure:
+        include:
+          - health
+          - info
+  endpoint:
+    info:
+      enabled: true
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: USER-SERVICE APPLICATION
+    description: This is an application to manage admin/user-management micro-services
+    version: 2.0
+  author: 'Akshay singh'
+
+
+#Connection with eureka-server/discovery-server/service-register config
+eureka:
+  instance:
+    #non-secure-port: 8080
+    #ip-address:
+    hostname: localhost
+    prefer-ip-address: true
+    #preferIpAddress: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #      default-time-zone: http://localhost:8761/eureka
+      defaultZone: http://admin:irb1234@localhost:8761/eureka
