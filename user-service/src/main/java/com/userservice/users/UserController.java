@@ -19,7 +19,7 @@ public class UserController {
     PasswordEncoder passwordEncoder;
 
     @GetMapping
-    public String createUser(){
+    public String home(){
         return "Welcome to Spring Reactive Application";
     }
 
